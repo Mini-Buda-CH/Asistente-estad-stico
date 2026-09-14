@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Asistente metodológico y estadístico para proyectos de investigación y tesis.">
+        <title>Guía estadística | Asistente de investigación</title>
+        <link rel="stylesheet" href="assets/styles.css">
+        <script defer src="assets/schema.js"></script>
+        <script defer src="assets/storage.js"></script>
+        <script defer src="assets/engine.js"></script>
+        <script defer src="assets/export.js"></script>
+        <script defer src="assets/app.js"></script>
+    </head>
+<body>
+    <a class="skip" href="#app">Saltar al cuestionario</a>
+<header class="hero">
+    <nav class="nav wrap" aria-label="Navegación principal">
+        <a class="brand" href="#inicio">
+            <img class="brand-logo" src="assets/Chava.png" width="44" height="44" alt="Chava">
+            <span>Guía metodológica y estadística</span>
+        </a>
+        <div class="navlinks">
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#app">Cuestionario</a>
+            <a href="#referencias">Referencias</a>
+        </div>
+        <button id="themeBtn" class="iconbtn" type="button" aria-label="Cambiar tema">◐</button>
+    </nav>
+
+<section id="inicio" class="wrap hero-grid">
+    <div>
+        <span class="eyebrow">Investigación con decisiones justificadas</span>
+        <h1>Diseña una metodología coherente con tu pregunta.</h1>
+        <p class="lead">Responde un cuestionario adaptativo y obtén una ruta provisional: enfoque, diseño, muestra, medición, análisis, visualización, supuestos y siguientes decisiones.</p>
+        <div class="actions">
+            <a class="btn primary" href="#app">Comenzar diagnóstico</a>
+            <button class="btn ghost" id="demoBtn" type="button">Cargar ejemplo</button>
+        </div>
+        <p class="micro">Sin registro · Sin servidor · Control local de tus respuestas</p>
+    </div>
+    <aside class="hero-card" aria-label="Vista previa">
+        <div class="mini-head">
+            <span>Ruta sugerida</span>
+            <span class="pill">Vista previa</span>
+        </div>
+        <div class="flow">
+            <div>
+                <b>01</b>
+                <span>Pregunta y objetivo</span>
+            </div>
+            <i>→</i>
+            <div>
+                <b>02</b>
+                <span>Diseño y muestra</span>
+            </div>
+            <i>→</i>
+            <div>
+                <b>03</b>
+                <span>Análisis y reporte</span>
+            </div>
+        </div>
+        <div class="formula">
+            <small>Tamaño muestral para proporción</small>
+            <strong>n₀ = Z²p(1−p) / e²</strong>
+        </div>
+        <div class="checks">
+            <span>✓ Reglas explicables</span>
+            <span>✓ Conflictos y datos faltantes</span>
+            <span>✓ Exportación MD / JSON / PDF</span>
+        </div>
+    </aside>
+</section>
+</header>
+
+<main>
+    <section id="como-funciona" class="wrap section">
+        <div class="section-head">
+            <span class="eyebrow">Proceso</span>
+            <h2>De la pregunta al plan</h2>
+            <p>La herramienta organiza decisiones, explica su origen y señala cuándo la información no basta. No sustituye asesoría disciplinar ni dictamen ético.</p>
+        </div>
+        <div class="steps">
+            <article>
+                <span>1</span>
+                <h3>Define el objetivo</h3>
+                <p>Pregunta, producto analítico, resultado y unidad de análisis.</p>
+            </article>
+            <article>
+                <span>2</span>
+                <h3>Caracteriza el estudio</h3>
+                <p>Diseño, muestra, medición, dependencia y factibilidad.</p>
+            </article>
+            <article>
+                <span>3</span>
+                <h3>Revisa y decide</h3>
+                <p>Comprueba congruencia antes de recibir la ruta y sus límites.</p>
+            </article>
+        </div>
+    </section>
+<section id="app" class="app-section">
+    <div class="wrap app-shell">
+        <aside class="sidebar">
+            <div>
+                <span class="eyebrow">Diagnóstico</span>
+                <h2>Tu proyecto</h2>
+            </div>
+            <ol id="stepList" aria-label="Etapas"></ol>
+            <div class="save-note">
+                <span aria-hidden="true">●</span>
+                <div>
+                    <b id="saveStatus">Autoguardado local</b>
+                    <small id="saveDetail">Puedes continuar después en este dispositivo.</small>
+                </div>
+            </div>
+        </aside>
+        <div class="workspace">
+            <div class="progress-row">
+                <div>
+                    <span id="stepLabel">Paso 1</span>
+                    <h2 id="stepTitle" tabindex="-1">Contexto</h2>
+                </div>
+                <span id="percent">0%</span>
+            </div>
+            <div id="progress" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="stepLabel">
+                <span id="progressBar"></span>
+            </div>
+        <div id="globalMessage" class="notice" role="status" hidden></div>
+        <form id="quizForm" novalidate>
+            <div id="questions"></div>
+            <div id="errorSummary" class="error-summary" role="alert" tabindex="-1" hidden></div>
+            <div class="form-nav">
+                <button id="backBtn" class="btn ghost" type="button">Anterior</button>
+                <button id="nextBtn" class="btn primary" type="submit">Siguiente</button>
+            </div>
+        </form>
+<section id="review" class="results" hidden aria-live="polite">
+    <div class="results-hero"><div>
+        <span class="eyebrow">Verificación previa</span>
+        <h2 tabindex="-1">Revisa tus respuestas</h2>
+        <p>Corrige contradicciones antes de generar una recomendación.</p>
+    </div>
+    <div class="score neutral">
+        <span id="reviewCompletion">—</span>
+        <small>completado</small>
+    </div>
+    </div>
+    <div id="conflicts"></div>
+    <div id="reviewSections"></div>
+    <div class="export">
+        <button id="reviewBackBtn" class="btn ghost" type="button">Volver</button>
+        <button id="generateBtn" class="btn primary" type="button">Generar ruta</button>
+    </div>
+</section>
+<section id="results" class="results" hidden aria-live="polite">
+    <div class="results-hero"><div>
+        <span class="eyebrow">Ruta metodológica sugerida</span>
+        <h2 id="resultTitle" tabindex="-1">Plan recomendado</h2>
+        <p id="resultSubtitle"></p>
+    </div>
+    <div class="score neutral">
+        <span id="completionScore">—</span>
+        <small>completado</small>
+    </div>
+</div>
+<div id="statusNotice" class="notice"></div>
+<div id="resultCards"></div>
+<div class="export">
+    <button id="editBtn" class="btn ghost" type="button">Editar</button>
+    <button id="newBtn" class="btn danger" type="button">Nuevo</button>
+    <button id="jsonBtn" class="btn ghost" type="button">Exportar</button>
+    <label class="btn ghost file-btn">Importar<input id="importInput" type="file" accept="application/json"></label>
+    <button id="mdBtn" class="btn ghost" type="button">Markdown</button>
+    <button id="printBtn" class="btn primary" type="button">Imprimir</button>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="referencias" class="wrap section">
+    <div class="section-head">
+        <span class="eyebrow">Base conceptual</span>
+        <h2>Referencias y límites</h2>
+        <p>Las rutas son educativas, versionadas y provisionales. Prevalecen la pregunta, el contexto, la calidad de medición, la literatura y los estándares de cada disciplina.</p>
+    </div>
+    <div class="refs">
+        <article>
+            <b>Alcances y diseños</b>
+            <p>Hernández-Sampieri y Mendoza: rutas cuantitativa, cualitativa y mixta; alcances exploratorio, descriptivo, correlacional y explicativo.</p>
+            <a href="https://bellasartes.upn.edu.co/wp-content/uploads/2024/11/METODOLOGIA-DE-LA-INVESTIGACION-Sampieri-Mendoza-2018.pdf" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+        <article>
+            <b>Métodos mixtos</b>
+            <p>Creswell y Plano Clark: diseños convergente, explicativo secuencial y exploratorio secuencial.</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4097839/" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+        <article>
+            <b>Muestra y potencia</b>
+            <p>Cochran para proporciones; en pruebas de hipótesis se recomienda análisis de potencia basado en efecto, alfa y diseño.</p>
+            <a href="https://cran.r-project.org/web/packages/cochranSize/vignettes/introduction.html" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+        <article>
+            <b>Reporte metodológico</b>
+            <p>JARS para métodos cuantitativos, cualitativos y mixtos; STROBE para diseños observacionales.</p>
+            <a href="https://apastyle.apa.org/jars" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+        <article>
+            <b>Investigación cualitativa</b>
+            <p>COREQ para entrevistas y grupos focales; poder informativo para justificar suficiencia muestral.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/17872937/" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+        <article>
+            <b>Ensayos y protocolos</b>
+            <p>CONSORT–SPIRIT para diseño, muestra, análisis y transparencia de protocolos.</p>
+            <a href="https://www.consort-spirit.org/" target="_blank" rel="noopener">Consultar fuente</a>
+        </article>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="wrap footer-grid">
+        <div>
+            <a class="brand footer-brand" href="#inicio">
+                <img class="brand-logo" src="assets/Chava.png" width="44" height="44" alt="Chava">
+                <span>Guía estadística</span>
+            </a>
+            <p>Asistente educativo para proyectos de investigación.</p>
+        </div>
+        <div>
+            <b>Enlaces</b>
+            <a href="#app">Cuestionario</a>
+            <a href="#referencias">Referencias</a>
+            <a href="README.md">Documentación</a>
+        </div>
+        <div>
+            <b>Personaliza aquí</b>
+            <a href="https://github.com/Mini-Buda-CH" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.instagram.com/eldragondelcuento?stkn=MTExbDN1czFzYXduZg==" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:smolina.co@gmail.com">Contacto</a>
+        </div>
+        <div class="logo-placeholder">
+            <img src="assets/Chava.png" alt="Chava" width="200" height="200" loading="lazy" decoding="async">
+        </div>
+    <div class="wrap legal">
+    <span>© <span id="year"></span> Salvador Molina Corona. Contenido educativo.</span>
+      <span>Privacidad local · Accesible · Responsive</span>
+    </div>
+</footer>
+</body>
+</html>
