@@ -12,7 +12,7 @@ window.MethodExport=(()=>{
     }
     return{
         markdown:(a,p)=>download('ruta-metodologica.md',md(a,p),'text/markdown;charset=utf-8'),
-        json:state=>download('proyecto-metodoguia.json',JSON.stringify(state,null,2),'application/json'),
+        json:state=>download('asistente-estadistico.json',JSON.stringify(state,null,2),'application/json'),
         text:md
     }
 })();
