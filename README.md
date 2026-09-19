@@ -72,7 +72,3 @@ La aplicación es una guía educativa y no sustituye asesoría metodológica, c�
 - Creswell y Plano Clark, diseños de métodos mixtos.
 - Fórmula de Cochran para muestra de proporciones y corrección por población finita.
 - Literatura sobre potencia, tamaño del efecto, validez, confiabilidad y saturación cualitativa.
-
-## Licencia sugerida
-
-Añade una licencia antes de distribuir. MIT es adecuada para permitir reutilización del código; el contenido bibliográfico y logotipos deben respetar sus licencias respectivas.
